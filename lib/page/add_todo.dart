@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite_practice/bloc/bloc/crud_bloc.dart';
+import '../widgets/custom_text.dart';
 
 class AddTodoPage extends StatefulWidget {
   const AddTodoPage({Key? key}) : super(key: key);
@@ -31,20 +32,11 @@ class _AddTodoPageState extends State<AddTodoPage> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Text(
-                'title'.toUpperCase(),
-                style: const TextStyle(fontSize: 21),
-              ),
+              CustomText(text: 'title'.toUpperCase()),
               TextFormField(controller: _title),
-              Text(
-                'description'.toUpperCase(),
-                style: const TextStyle(fontSize: 21),
-              ),
+              CustomText(text: 'description'.toUpperCase()),
               TextFormField(controller: _description),
-              Text(
-                'important'.toUpperCase(),
-                style: const TextStyle(fontSize: 21),
-              ),
+              CustomText(text: 'important'.toUpperCase()),
               Switch(
                 value: toggleSwitch,
                 onChanged: (newVal) {

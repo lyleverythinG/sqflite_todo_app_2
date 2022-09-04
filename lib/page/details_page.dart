@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:sqflite_practice/bloc/bloc/crud_bloc.dart';
 import '../constants/constants.dart';
 import '../models/todo.dart';
+import '../widgets/custom_text.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -42,46 +43,30 @@ class _DetailsPageState extends State<DetailsPage> {
 
               return Column(
                 children: [
-                  Text(
-                    'title'.toUpperCase(),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(text: 'title'.toUpperCase()),
                   const SizedBox(height: 10),
                   TextFormField(
                       initialValue: currentTodo.title, enabled: false),
                   const SizedBox(height: 10),
-                  Text(
-                    'description'.toUpperCase(),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(text: 'description'.toUpperCase()),
                   const SizedBox(height: 10),
                   TextFormField(
                     initialValue: currentTodo.description,
                     enabled: false,
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    'date made'.toUpperCase(),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(text: 'date made'.toUpperCase()),
                   const SizedBox(height: 10),
-                  Text(
-                    DateFormat.yMMMEd().format(state.todo.createdTime),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(
+                      text: DateFormat.yMMMEd().format(state.todo.createdTime)),
                   const SizedBox(height: 10),
-                  Text(
-                    'important / not important'.toUpperCase(),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(text: 'important / not important'.toUpperCase()),
                   const SizedBox(height: 10),
-                  Text(
-                    (state.todo.isImportant == true
-                            ? 'important'
-                            : 'not important')
-                        .toUpperCase(),
-                    style: const TextStyle(fontSize: 21),
-                  ),
+                  CustomText(
+                      text: (state.todo.isImportant == true
+                              ? 'important'
+                              : 'not important')
+                          .toUpperCase()),
                   const SizedBox(height: 10),
                   ElevatedButton(
                       onPressed: () {
